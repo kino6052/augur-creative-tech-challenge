@@ -30,6 +30,18 @@ var locationMiddleware = function(req, res, next){
   next();
 };
 
+//SOLUTION
+
+// This solution fullfils the requirements:
+// A. When a visitor hits a page, assign a unique ID to that browser
+// B. After the browser is restarted, when the visitor hits the page again the browser has the same ID
+// C. After the browser clears cookies, the browser is still assigned the same ID
+// D. After the browser clears cache, cookies, and all, the browser is still assigned the same ID
+// E. Some, or all, of the browsers (chrome, firefox, opera, IE, Safari, etc.) on the device share the same ID
+// F. If you got this to work on desktop, get this to also work on mobile (The desktop and mobile devices should have different ID’s though)
+// G. Create a scalable solution
+
+// However, it is geography specific and is only working for a set location in space with ~5 mi range
 
 var getUniqueIdMiddleware = function(req, res, next){
   var country = res.locationData["country_code"]; 
